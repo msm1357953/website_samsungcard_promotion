@@ -17,40 +17,80 @@
     <meta property="og:description" content="삼성카드 캐시백 이벤트">
 
     <title>삼성카드</title>
-    <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/samsung.ico">
 
-    <!-- 기존 CSS -->
-    <link rel="stylesheet" type="text/css" href="https://www.samsungcard-ad.com/assets/css/setting.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://www.samsungcard-ad.com/assets/css/monimotwin/total/setting.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://www.samsungcard-ad.com/assets/css/250901/monimotwin/total/main.css">
+    <!-- 로컬 CSS (오프라인 사용) -->
+    <link rel="stylesheet" type="text/css" href="css/vendor/setting.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor/monimotwin-setting.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor/monimotwin-main.css">
 
     <!-- 커스텀 CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!-- jQuery -->
-    <script src="https://www.samsungcard-ad.com/assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- jQuery (로컬) -->
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
     <!-- 상단 슬림 플로팅 탭 (신규) -->
     <nav class="floating-tab" id="floatingTab">
-        <button class="tab-btn active" data-target="section01">캐시백 혜택</button>
-        <button class="tab-btn" data-target="section03">LINK 혜택</button>
-        <button class="tab-btn" data-target="section04">정기결제 혜택</button>
+        <button class="tab-btn active" data-target="section01">
+            <span class="tab-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <defs>
+                        <mask id="won-mask">
+                            <rect width="100%" height="100%" fill="white" />
+                            <text x="50%" y="70%" text-anchor="middle" font-weight="900" font-size="12px"
+                                font-family="Arial, sans-serif" fill="black">₩</text>
+                        </mask>
+                    </defs>
+                    <!-- Back Bill -->
+                    <rect x="2.5" y="6" width="19" height="12" rx="1.5" transform="rotate(-12 12 12)" opacity="0.4" />
+                    <!-- Front Bill -->
+                    <rect x="2.5" y="6" width="19" height="12" rx="1.5" mask="url(#won-mask)" />
+                </svg>
+            </span>
+            <span class="tab-label">캐시백 혜택</span>
+        </button>
+        <button class="tab-btn" data-target="section03">
+            <span class="tab-icon tab-icon-link">
+                <!-- 컬러 버전 (비활성 시) -->
+                <svg class="link-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 24" fill="none">
+                    <path d="M0 2h4v16h10v4H0V2z" fill="#00B4D8" />
+                    <path d="M16 2h4v20h-4V2z" fill="#00B4D8" />
+                    <path d="M24 2h4l8 14V2h4v20h-4l-8-14v14h-4V2z" fill="#E91E8C" />
+                    <path d="M46 2h4v8l8-8h5l-9 10 9 10h-5l-8-8v8h-4V2z" fill="#00B4D8" />
+                </svg>
+                <!-- 흰색 버전 (활성 시) -->
+                <svg class="link-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 24">
+                    <path d="M0 2h4v16h10v4H0V2z" fill="#fff" />
+                    <path d="M16 2h4v20h-4V2z" fill="#fff" />
+                    <path d="M24 2h4l8 14V2h4v20h-4l-8-14v14h-4V2z" fill="#fff" />
+                    <path d="M46 2h4v8l8-8h5l-9 10 9 10h-5l-8-8v8h-4V2z" fill="#fff" />
+                </svg>
+            </span>
+            <span class="tab-label">LINK 혜택</span>
+        </button>
+        <button class="tab-btn" data-target="section04">
+            <span class="tab-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z" />
+                </svg>
+            </span>
+            <span class="tab-label">정기결제 혜택</span>
+        </button>
     </nav>
 
     <!-- 기존 Visual 유지 -->
     <div id="visual">
         <div class="visual-wrap">
             <div class="inner">
-                <img class="web_view"
-                    src="https://www.samsungcard-ad.com/assets/images/251203/monimotwin/total/web/visual_img_ver2.jpg"
-                    alt="12월 한정 이벤트 최대 32.8만원 혜택">
-                <img class="mob_view"
-                    src="https://www.samsungcard-ad.com/assets/images/251203/monimotwin/total/mob/visual_img_ver2.jpg"
-                    alt="12월 한정 이벤트 최대 32.8만원 혜택">
+                <img class="web_view" src="assets/images/visual_web.jpg" alt="12월 한정 이벤트 최대 32.8만원 혜택">
+                <img class="mob_view" src="assets/images/visual_mob.jpg" alt="12월 한정 이벤트 최대 32.8만원 혜택">
             </div>
         </div>
     </div>
@@ -60,149 +100,111 @@
         <div class="section section01" id="section01">
             <div class="inner">
                 <span class="event_num">이벤트 1</span>
-                <h2>대상카드</h2>
+                <h2>대상 카드 30만원 쓰면<br><span class="highlight">23만원 캐시백 증정</span></h2>
 
-                <!-- 카드 캐러셀 -->
-                <div class="card-carousel" id="cardCarousel">
-                    <!-- 카드 1: taptap O -->
-                    <div class="card-slide" data-index="0">
-                        <div class="card-tagline-wrap">
-                            <span class="card-tagline">🔥 2030 추천</span>
-                            <span class="card-tagline-sub">해외여행 자주 간다면 추천</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="https://www.samsungcard-ad.com/assets/images/250801/monimotwin/total/mob/card_taptap_o_re.png"
-                                    alt="삼성카드 taptap O">
+                <!-- 카드 캐러셀 (Swiper) -->
+                <div class="card-carousel-wrap swiper" id="cardSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- 카드 1: taptap O -->
+                        <div class="swiper-slide card-slide">
+                            <div class="card-tagline-wrap">
+                                <span class="card-tagline">🔥 2030 추천</span>
+                                <span class="card-tagline-sub">해외여행 자주 간다면 추천</span>
                             </div>
-                            <div class="card-info">
-                                <h5 class="card-name">삼성카드 taptap O</h5>
-                                <p class="card-benefit">
-                                    연 최대 <strong>36만원 할인</strong><br>
-                                    해외 <strong>1.3% 적립</strong>
-                                </p>
-                                <div class="card-cashback">
-                                    <img src="https://www.samsungcard-ad.com/assets/images/251201/monimotwin/total/web/img_money_23.png"
-                                        alt="23만원" class="cashback-icon">
-                                    <div class="cashback-text">
-                                        <span class="cashback-condition">30만원 쓰면</span>
-                                        <span class="cashback-amount">23만원 캐시백</span>
-                                    </div>
+                            <div class="card-content">
+                                <div class="card-image">
+                                    <img src="assets/images/card_taptap_o.png" alt="삼성카드 taptap O">
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="card-name">삼성카드 taptap O</h5>
+                                    <p class="card-benefit">
+                                        연 최대 <strong>36만원 할인</strong><br>
+                                        해외 <strong>1.3% 적립</strong>
+                                    </p>
+                                </div>
+                                <div class="card-buttons">
+                                    <a class="btn-detail" href="#!">자세히 보기</a>
+                                    <a class="btn-apply" href="#!">응모하기</a>
                                 </div>
                             </div>
-                            <div class="card-buttons">
-                                <a class="btn-detail" href="#!">자세히 보기</a>
-                                <a class="btn-apply" href="#!">응모하기</a>
-                            </div>
                         </div>
-                    </div>
 
-                    <!-- 카드 2: iD SIMPLE -->
-                    <div class="card-slide" data-index="1">
-                        <div class="card-tagline-wrap">
-                            <span class="card-tagline">💳 실속파</span>
-                            <span class="card-tagline-sub">조건 없이 할인받고 싶다면</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="https://www.samsungcard-ad.com/assets/images/250801/monimotwin/total/web/card_id_simple.png"
-                                    alt="삼성 iD SIMPLE 카드">
+                        <!-- 카드 2: iD SIMPLE -->
+                        <div class="swiper-slide card-slide">
+                            <div class="card-tagline-wrap">
+                                <span class="card-tagline">💳 실속파</span>
+                                <span class="card-tagline-sub">조건 없이 할인받고 싶다면</span>
                             </div>
-                            <div class="card-info">
-                                <h5 class="card-name">삼성 iD SIMPLE 카드</h5>
-                                <p class="card-benefit">
-                                    전월 이용금액 관계없이<br>
-                                    할인한도 없이 <strong>1%·0.7% 할인</strong>
-                                </p>
-                                <div class="card-cashback">
-                                    <img src="https://www.samsungcard-ad.com/assets/images/251201/monimotwin/total/web/img_money_23.png"
-                                        alt="23만원" class="cashback-icon">
-                                    <div class="cashback-text">
-                                        <span class="cashback-condition">30만원 쓰면</span>
-                                        <span class="cashback-amount">23만원 캐시백</span>
-                                    </div>
+                            <div class="card-content">
+                                <div class="card-image">
+                                    <img src="assets/images/card_id_simple.png" alt="삼성 iD SIMPLE 카드">
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="card-name">삼성 iD SIMPLE 카드</h5>
+                                    <p class="card-benefit">
+                                        전월 이용금액 관계없이<br>
+                                        할인한도 없이 <strong>1%·0.7% 할인</strong>
+                                    </p>
+                                </div>
+                                <div class="card-buttons">
+                                    <a class="btn-detail" href="#!">자세히 보기</a>
+                                    <a class="btn-apply" href="#!">응모하기</a>
                                 </div>
                             </div>
-                            <div class="card-buttons">
-                                <a class="btn-detail" href="#!">자세히 보기</a>
-                                <a class="btn-apply" href="#!">응모하기</a>
-                            </div>
                         </div>
-                    </div>
 
-                    <!-- 카드 3: iD GLOBAL -->
-                    <div class="card-slide" data-index="2">
-                        <div class="card-tagline-wrap">
-                            <span class="card-tagline">🌍 해외파</span>
-                            <span class="card-tagline-sub">해외 결제가 많다면</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="https://www.samsungcard-ad.com/assets/images/250801/monimotwin/total/web/card_global.png"
-                                    alt="삼성 iD GLOBAL 카드">
+                        <!-- 카드 3: iD GLOBAL -->
+                        <div class="swiper-slide card-slide">
+                            <div class="card-tagline-wrap">
+                                <span class="card-tagline">🌍 해외파</span>
+                                <span class="card-tagline-sub">해외 결제가 많다면</span>
                             </div>
-                            <div class="card-info">
-                                <h5 class="card-name">삼성 iD GLOBAL 카드</h5>
-                                <p class="card-benefit">
-                                    전월 이용금액 관계없이<br>
-                                    해외 <strong>2% 할인</strong>
-                                </p>
-                                <div class="card-cashback">
-                                    <img src="https://www.samsungcard-ad.com/assets/images/251201/monimotwin/total/web/img_money_23.png"
-                                        alt="23만원" class="cashback-icon">
-                                    <div class="cashback-text">
-                                        <span class="cashback-condition">30만원 쓰면</span>
-                                        <span class="cashback-amount">23만원 캐시백</span>
-                                    </div>
+                            <div class="card-content">
+                                <div class="card-image">
+                                    <img src="assets/images/card_global.png" alt="삼성 iD GLOBAL 카드">
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="card-name">삼성 iD GLOBAL 카드</h5>
+                                    <p class="card-benefit">
+                                        전월 이용금액 관계없이<br>
+                                        해외 <strong>2% 할인</strong>
+                                    </p>
+                                </div>
+                                <div class="card-buttons">
+                                    <a class="btn-detail" href="#!">자세히 보기</a>
+                                    <a class="btn-apply" href="#!">응모하기</a>
                                 </div>
                             </div>
-                            <div class="card-buttons">
-                                <a class="btn-detail" href="#!">자세히 보기</a>
-                                <a class="btn-apply" href="#!">응모하기</a>
-                            </div>
                         </div>
-                    </div>
 
-                    <!-- 카드 4: taptap DIGITAL -->
-                    <div class="card-slide" data-index="3">
-                        <div class="card-tagline-wrap">
-                            <span class="card-tagline">📱 온라인파</span>
-                            <span class="card-tagline-sub">온라인 쇼핑 자주 한다면</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="https://www.samsungcard-ad.com/assets/images/250801/monimotwin/total/web/card_taptapdigital_image.png"
-                                    alt="taptap DIGITAL">
+                        <!-- 카드 4: taptap DIGITAL -->
+                        <div class="swiper-slide card-slide">
+                            <div class="card-tagline-wrap">
+                                <span class="card-tagline">📱 온라인파</span>
+                                <span class="card-tagline-sub">온라인 쇼핑 자주 한다면</span>
                             </div>
-                            <div class="card-info">
-                                <h5 class="card-name">taptap DIGITAL</h5>
-                                <p class="card-benefit">
-                                    온라인 간편결제 <strong>5% 할인</strong><br>
-                                    해외 <strong>1.5% 할인</strong>
-                                </p>
-                                <div class="card-cashback">
-                                    <img src="https://www.samsungcard-ad.com/assets/images/251201/monimotwin/total/web/img_money_23.png"
-                                        alt="23만원" class="cashback-icon">
-                                    <div class="cashback-text">
-                                        <span class="cashback-condition">30만원 쓰면</span>
-                                        <span class="cashback-amount">23만원 캐시백</span>
-                                    </div>
+                            <div class="card-content">
+                                <div class="card-image">
+                                    <img src="assets/images/card_taptap_digital.png" alt="taptap DIGITAL">
+                                </div>
+                                <div class="card-info">
+                                    <h5 class="card-name">taptap DIGITAL</h5>
+                                    <p class="card-benefit">
+                                        온라인 간편결제 <strong>5% 할인</strong><br>
+                                        해외 <strong>1.5% 할인</strong>
+                                    </p>
+                                </div>
+                                <div class="card-buttons">
+                                    <a class="btn-detail" href="#!">자세히 보기</a>
+                                    <a class="btn-apply" href="#!">응모하기</a>
                                 </div>
                             </div>
-                            <div class="card-buttons">
-                                <a class="btn-detail" href="#!">자세히 보기</a>
-                                <a class="btn-apply" href="#!">응모하기</a>
-                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- 인디케이터 -->
-                <div class="carousel-indicators" id="carouselIndicators">
-                    <span class="indicator active" data-index="0"></span>
-                    <span class="indicator" data-index="1"></span>
-                    <span class="indicator" data-index="2"></span>
-                    <span class="indicator" data-index="3"></span>
+                    </div>
+                    <!-- 네비게이션 버튼 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
 
                 <div class="add_box">
@@ -297,8 +299,7 @@
                     <span class="event_num">이벤트 2</span>
                     <h2 class="ttl">LINK하고<br /><span class="fw_700 f_inhert color_blue">최대 6.8만원 혜택 받기!</span></h2>
                     <div class="thumb">
-                        <img src="https://www.samsungcard-ad.com/assets/images/251201/monimotwin/total/web/today_b_thumb_636x310.png"
-                            alt="">
+                        <img src="assets/images/today_b_thumb.png" alt="">
                     </div>
                     <ul class="event_list">
                         <li class="event_item">
@@ -348,8 +349,7 @@
                     </h3>
                 </div>
                 <div class="thumb">
-                    <img src="https://www.samsungcard-ad.com/assets/images/251101/monimotwin/total/web/new_module_vis_480x200.png"
-                        alt="">
+                    <img src="assets/images/new_module_vis.png" alt="">
                 </div>
                 <dl class="def_group">
                     <dt class="def_dt"><b class="txt">행사기간</b></dt>
@@ -406,6 +406,9 @@
     <div class="floating-cta" id="floatingCta">
         <a href="#!" class="cta-btn">응모하기</a>
     </div>
+
+    <!-- Swiper.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- 커스텀 JS -->
     <script src="js/main.js"></script>
