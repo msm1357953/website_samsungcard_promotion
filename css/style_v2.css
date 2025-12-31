@@ -1,3 +1,70 @@
+/* ===== Pretendard 폰트 로컬화 (WOFF2) ===== */
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 100;
+    src: url('../fonts/Pretendard-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 200;
+    src: url('../fonts/Pretendard-ExtraLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    src: url('../fonts/Pretendard-Light.woff2') format('woff2'),
+        url('../fonts/Pretendard-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    src: url('../fonts/Pretendard-Regular.woff2') format('woff2'),
+        url('../fonts/Pretendard-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    src: url('../fonts/Pretendard-Medium.woff2') format('woff2'),
+        url('../fonts/Pretendard-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    src: url('../fonts/Pretendard-SemiBold.woff2') format('woff2'),
+        url('../fonts/Pretendard-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 700;
+    src: url('../fonts/Pretendard-Bold.woff2') format('woff2'),
+        url('../fonts/Pretendard-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 800;
+    src: url('../fonts/Pretendard-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 900;
+    src: url('../fonts/Pretendard-Black.otf') format('opentype');
+}
+
+/* ===== 폰트 렌더링 최적화 ===== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 /* 삼성카드 프로모션 모바일 UI 개선 스타일 */
 
 /* ===== 상단 플로팅 탭 ===== */
@@ -291,12 +358,22 @@
 .card-image {
     text-align: center;
     margin-bottom: 16px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-image img {
     max-height: 140px;
     width: auto;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* 가로형 카드 이미지 (taptap DIGITAL) */
+.card-image img.horizontal-card {
+    max-height: 100px;
+    max-width: 180px;
 }
 
 .card-info {
