@@ -571,6 +571,64 @@ h2 .highlight {
     display: block;
 }
 
+/* ===== 이 달의 One Pick! 섹션 ===== */
+.section-onepick {
+    background: #F9F9F9;
+    padding: 30px 0 24px;
+    text-align: center;
+}
+
+.onepick-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.onepick-card-badge {
+    display: inline-block;
+    background: #DB5A7E;
+    border: 2px solid #DB5A7E;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.onepick-subtitle {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.onepick-benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.onepick-tag {
+    display: inline-block;
+    background: #faedf5;
+    color: #DB5A7E;
+    padding: 8px 14px;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.onepick-plus {
+    font-size: 16px;
+    font-weight: 700;
+    color: #DB5A7E;
+}
+
 .section01 h2 {
     width: 100% !important;
     /* vendor CSS 오버라이드 */
@@ -625,9 +683,11 @@ footer {
     margin-bottom: 30px;
 }
 
-.event2-keyvisual img {
-    max-width: 200px;
+.event2-keyvisual img,
+.event2-keyvisual video {
+    max-width: 260px;
     height: auto;
+    border-radius: 12px;
 }
 
 /* 혜택 리스트 카드 */
@@ -716,6 +776,70 @@ footer {
     background: #0050cc;
 }
 
+/* 이벤트2 행사 정보 */
+.section03 .def_group {
+    text-align: left;
+    padding-left: 35px;
+    margin-bottom: 12px;
+}
+
+/* STEP 리스트 */
+.step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+}
+
+.step-num {
+    display: inline-block;
+    background: #0068ff;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+    line-height: 1.4;
+}
+
+.step-item .txt {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 2px;
+}
+
+/* 혜택 리스트 카드 하단 간격 */
+.section03 .benefit-card {
+    margin-bottom: 30px;
+}
+
+/* LINK PLUS 아이콘 */
+.ico {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+}
+
+.ico_linkplus {
+    width: 100px;
+    height: 14px;
+    background-image: url('../assets/ico_linkplus.png');
+    vertical-align: middle;
+}
+
 /* ===== 이벤트 3: 정기결제 혜택 섹션 ===== */
 .section04 {
     background: #fff;
@@ -748,9 +872,11 @@ footer {
     margin-bottom: 30px;
 }
 
-.event3-keyvisual img {
-    max-width: 200px;
+.event3-keyvisual img,
+.event3-keyvisual video {
+    max-width: 260px;
     height: auto;
+    border-radius: 12px;
 }
 
 /* 행사 정보 - 좌측 정렬 (+ 들여쓰기) */
