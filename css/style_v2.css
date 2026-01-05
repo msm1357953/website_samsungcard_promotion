@@ -565,6 +565,12 @@ h2 .highlight {
     padding: 0;
 }
 
+#visual video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .section01 h2 {
     width: 100% !important;
     /* vendor CSS 오버라이드 */
