@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="css/vendor/monimotwin-main.css">
 
     <!-- V2 커스텀 CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style_v2.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Swiper.js (로컬) -->
     <link rel="stylesheet" href="css/vendor/swiper-bundle.min.css">
@@ -86,12 +86,13 @@
         </button>
     </nav>
 
-    <!-- 기존 Visual 유지 -->
+    <!-- 키비주얼 영상 -->
     <div id="visual">
         <div class="visual-wrap">
             <div class="inner">
-                <img class="web_view" src="assets/images/visual_web.jpg" alt="12월 한정 이벤트 최대 32.8만원 혜택">
-                <img class="mob_view" src="assets/images/visual_mob.jpg" alt="12월 한정 이벤트 최대 32.8만원 혜택">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/비딩_이용유도페이지_KV.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
@@ -230,7 +231,7 @@
                         <p><strong>행사 기간</strong></p>
                     </dt>
                     <dd>
-                        <p class="normal"><strong>2025.12.1(월)~12.31(수)</strong> <span>(응모일 기준)</span></p>
+                        <p class="normal"><strong>2026.1.1(목)~1.31(토)</strong> <span>(응모일 기준)</span></p>
                     </dd>
                 </dl>
                 <dl class="clearfix">
@@ -256,7 +257,7 @@
                         </div>
                         <div class="d_div">
                             <p class="txt">STEP 2.</p>
-                            <p class="txt"><b>2025.12.1(월)~2026.1.31(토)</b> 동안 국내외 가맹점에서 대상 카드로 일시불 및 할부 합산 <strong
+                            <p class="txt"><b>2026.1.1(목)~2026.2.28(일)</b> 동안 국내외 가맹점에서 대상 카드로 일시불 및 할부 합산 <strong
                                     class="color_blue">30만원</strong> 이상 이용</p>
                         </div>
                         <div class="d_div">
@@ -373,7 +374,7 @@
                 <dl class="def_group">
                     <dt class="def_dt"><b class="txt">행사 기간</b></dt>
                     <dd class="def_dd">
-                        <p class="txt">2025.12.1(월)~12.31(수)</p>
+                        <p class="txt">2026.1.1(목)~2026.2.28(일)</p>
                     </dd>
                 </dl>
                 <dl class="def_group">
@@ -463,10 +464,18 @@
                 var bottomCta = document.getElementById('bottomCta');
                 var section03 = document.getElementById('section03');
                 var tabBtns = document.querySelectorAll('.tab-btn');
+                var isScrollingByClick = false; // 탭 클릭으로 스크롤 중인지 플래그
 
                 // 탭 클릭 이벤트
+                var scrollEndTimer = null;
                 tabBtns.forEach(function (btn) {
                     btn.addEventListener('click', function () {
+                        // 클릭 스크롤 중 플래그 설정
+                        isScrollingByClick = true;
+
+                        // 기존 타이머 클리어
+                        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+
                         // active 클래스 토글
                         tabBtns.forEach(function (b) {
                             b.classList.remove('active');
@@ -480,6 +489,13 @@
                                 top: targetEl.offsetTop - 60,
                                 behavior: 'smooth'
                             });
+
+                            // smooth 스크롤 완료 후 플래그 해제 (충분한 시간 확보)
+                            scrollEndTimer = setTimeout(function () {
+                                isScrollingByClick = false;
+                            }, 800);
+                        } else {
+                            isScrollingByClick = false;
                         }
                     });
                 });
@@ -527,23 +543,25 @@
                         }
                     }
 
-                    // 스크롤 위치에 따른 탭 active 상태 변경
-                    var section01 = document.getElementById('section01');
-                    var section04 = document.getElementById('section04');
+                    // 스크롤 위치에 따른 탭 active 상태 변경 (클릭 스크롤 중엔 스킵)
+                    if (!isScrollingByClick) {
+                        var section01 = document.getElementById('section01');
+                        var section04 = document.getElementById('section04');
 
-                    if (section01 && section03 && section04) {
-                        var s1Top = section01.offsetTop - 100;
-                        var s3Top = section03.offsetTop - 100;
-                        var s4Top = section04.offsetTop - 100;
+                        if (section01 && section03 && section04) {
+                            var s1Top = section01.offsetTop - 100;
+                            var s3Top = section03.offsetTop - 100;
+                            var s4Top = section04.offsetTop - 100;
 
-                        tabBtns.forEach(function (b) { b.classList.remove('active'); });
+                            tabBtns.forEach(function (b) { b.classList.remove('active'); });
 
-                        if (scrollY >= s4Top) {
-                            tabBtns[2].classList.add('active');
-                        } else if (scrollY >= s3Top) {
-                            tabBtns[1].classList.add('active');
-                        } else {
-                            tabBtns[0].classList.add('active');
+                            if (scrollY >= s4Top) {
+                                tabBtns[2].classList.add('active');
+                            } else if (scrollY >= s3Top) {
+                                tabBtns[1].classList.add('active');
+                            } else {
+                                tabBtns[0].classList.add('active');
+                            }
                         }
                     }
 
